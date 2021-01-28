@@ -1,0 +1,1 @@
+Tiny tool for Pomodoro Technique.

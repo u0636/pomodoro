@@ -27,7 +27,7 @@ def main(pomodoros, short_break, long_break, pomodoros_length):
             pomodoro_timer(length, progressbar_label, progressbar_color)
 
 def pomodoro_timer(length, progressbar_label, progressbar_color):
-    length = length * 1
+    length = length * 60
     fill_char = click.style('#', fg=progressbar_color)
     empty_char = click.style('-', fg='white')
     with click.progressbar(range(length),

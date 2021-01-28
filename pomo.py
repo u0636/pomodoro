@@ -9,7 +9,7 @@ import time
 @click.option('-l', '--long-break', default=5, help='Long break.')
 @click.option('--pomodoros_length', default=3, help='Pomodoro\'s length.')
 def main(pomodoros, short_break, long_break, pomodoros_length):
-    """Simple program for Pomodoro Technique."""
+    """Tiny tool for Pomodoro Technique."""
     for pomo in range(1, pomodoros+1):
         length = pomodoros_length
         progressbar_label = f'Pomodoro {pomo}'

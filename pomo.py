@@ -11,13 +11,21 @@ import time
 def main(pomodoros, short_break, long_break, pomodoros_length):
     """Simple program for Pomodoro Technique."""
     for pomo in range(1, pomodoros+1):
-        pomodoros_length = pomodoros_length * 1
+        length = pomodoros_length
         progressbar_label = f'Pomodoro {pomo}'
-        pomodoro_timer(pomodoros_length, progressbar_label)
+        pomodoro_timer(length, progressbar_label)
+        if pomo == pomodoros:
+            length = long_break
+            progressbar_label = 'Long break'
+            pomodoro_timer(length, progressbar_label)
+        else:
+            length = short_break
+            progressbar_label = 'Short break'
+            pomodoro_timer(length, progressbar_label)
 
-                
-def pomodoro_timer(pomodoros_length, progressbar_label):
-    with click.progressbar(range(pomodoros_length),
+def pomodoro_timer(length, progressbar_label):
+    length = length * 1
+    with click.progressbar(range(length),
                             label=progressbar_label) as bar:
             for menute in bar:
                 time.sleep(1)

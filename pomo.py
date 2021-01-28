@@ -5,9 +5,9 @@ import time
 
 @click.command()
 @click.option('-p', '--pomodoros', default=4, help='Number of pomodoros.')
-@click.option('-s', '--short-break', default=2, help='Short break.')
-@click.option('-l', '--long-break', default=5, help='Long break.')
-@click.option('--pomodoros_length', default=3, help='Pomodoro\'s length.')
+@click.option('-s', '--short-break', default=5, help='Short break.')
+@click.option('-l', '--long-break', default=15, help='Long break.')
+@click.option('--pomodoros_length', default=25, help='Pomodoro\'s length.')
 def main(pomodoros, short_break, long_break, pomodoros_length):
     """Tiny tool for Pomodoro Technique."""
     for pomo in range(1, pomodoros+1):
@@ -24,7 +24,7 @@ def main(pomodoros, short_break, long_break, pomodoros_length):
             pomodoro_timer(length, progressbar_label)
 
 def pomodoro_timer(length, progressbar_label):
-    length = length * 1
+    length = length * 60
     with click.progressbar(range(length),
                             label=progressbar_label) as bar:
             for menute in bar:
